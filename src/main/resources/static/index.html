@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Bozor - Bosh sahifa</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">E-Bozor</a>
+                <div class="search-box">
+                    <input type="text" placeholder="Mahsulotlarni qidirish...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-right">
+                    <a href="/products/create.html" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> E'lon berish
+                    </a>
+                    <div class="auth-buttons" id="authButtons">
+                        <a href="/auth/login.html" class="btn btn-outline">
+                            <i class="fas fa-user"></i> Kirish
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="categories-section">
+                <h2>Kategoriyalar</h2>
+                <div class="categories" id="categoriesList">
+                    <!-- Kategoriyalar JavaScript orqali yuklanadi -->
+                </div>
+            </div>
+
+            <div class="products-section">
+                <div class="filters">
+                    <select id="sortSelect">
+                        <option value="newest">Eng yangi</option>
+                        <option value="cheapest">Eng arzon</option>
+                        <option value="expensive">Eng qimmat</option>
+                    </select>
+                    <div class="type-filter">
+                        <button class="active" data-type="all">Barcha e'lonlar</button>
+                        <button data-type="free">Tekin e'lonlar</button>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Mahsulotlar JavaScript orqali yuklanadi -->
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Sahifalash JavaScript orqali yuklanadi -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Biz haqimizda</h3>
+                    <p>E-Bozor - mahsulotlarni sotish va sotib olish uchun qulay platforma.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bog'lanish</h3>
+                    <p>Email: info@ebozor.uz</p>
+                    <p>Telefon: +998 90 123 45 67</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 E-Bozor. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+### Create Location
+POST http://localhost:8080/api/v1/location/create
+Content-Type: application/json
+
+{
+  "userId": "df2ae5d4-77e5-4f31-bd48-a6f101100587",
+  "addressLine": "Sergeli-5",
+  "addressLine1": "Apartment 106",
+  "city": "TASHKENT"
+}
+
+### Get Location
+GET http://localhost:8080/api/v1/location/get/df2ae5d4-77e5-4f31-bd48-a6f101100587
+
+### Update Location
+PUT http://localhost:8080/api/v1/location/update/df2ae5d4-77e5-4f31-bd48-a6f101100587
+Content-Type: application/json
+
+{
+  "addressLine": "456 Park Avenue",
+  "addressLine1": "Suite 10",
+  "city": "TASHKENT"
+}
+
+### Delete Location
+DELETE http://localhost:8080/api/v1/location/delete/df2ae5d4-77e5-4f31-bd48-a6f101100587

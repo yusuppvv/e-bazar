@@ -1,0 +1,30 @@
+POST localhost:8080/api/v1/e-free/create
+Content-Type: application/json
+
+{
+  "title": "MacBook",
+  "description": "Macbook m2 holati yaxshi",
+  "contact": "+998 99 701 20 10",
+  "category_id": "0aae093a-ee3c-40a3-9f22-ddd09b268307",
+  "user_id": "df2ae5d4-77e5-4f31-bd48-a6f101100587",
+  "location_id": "55753c59-1260-41ac-8085-de2b8855c47b"
+}
+
+###
+GET localhost:8080/api/v1/e-free/get
+
+###
+PUT localhost:8080/api/v1/e-free/update?userId=df2ae5d4-77e5-4f31-bd48-a6f101100587&productId=6244831c-2e16-4b51-9acb-be9697be3f05
+Content-Type: application/json
+
+{
+  "title": "Mac",
+  "description": "Mac m1 chip",
+  "contact": "+998 99 701 20 10",
+  "category_id": "0aae093a-ee3c-40a3-9f22-ddd09b268307",
+  "user_id": "df2ae5d4-77e5-4f31-bd48-a6f101100587",
+  "location_id": "55753c59-1260-41ac-8085-de2b8855c47b"
+}
+
+###
+DELETE localhost:8080/api/v1/e-free/delete/6244831c-2e16-4b51-9acb-be9697be3f05?userId=df2ae5d4-77e5-4f31-bd48-a6f101100587

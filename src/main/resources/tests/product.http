@@ -1,0 +1,32 @@
+POST localhost:8080/api/v1/product/create
+Content-Type: application/json
+
+{
+  "title": "MacBook",
+  "description": "Mac book holati yangi",
+  "price": 1.000,
+  "user_id": "df2ae5d4-77e5-4f31-bd48-a6f101100587",
+  "category_id": "0aae093a-ee3c-40a3-9f22-ddd09b268307",
+  "location_id": "55753c59-1260-41ac-8085-de2b8855c47b",
+  "contact": "+998 33 701 38 33"
+}
+
+###
+GET localhost:8080/api/v1/product/get
+
+###
+PUT localhost:8080/api/v1/product/update?userId=df2ae5d4-77e5-4f31-bd48-a6f101100587&productId=01534f0c-a094-49aa-a699-9f271c0ec60f
+Content-Type: application/json
+
+{
+  "title": "Mac",
+  "description": "Mac m1 chip",
+  "price": 2.000,
+  "category_id": "0aae093a-ee3c-40a3-9f22-ddd09b268307",
+  "location_id": "55753c59-1260-41ac-8085-de2b8855c47b",
+  "contact": "+998 99 701 20 10",
+  "user_id": "df2ae5d4-77e5-4f31-bd48-a6f101100587"
+}
+
+###
+DELETE localhost:8080/api/v1/product/delete/01534f0c-a094-49aa-a699-9f271c0ec60f?userId=df2ae5d4-77e5-4f31-bd48-a6f101100587
