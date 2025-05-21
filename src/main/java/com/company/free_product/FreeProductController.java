@@ -31,6 +31,30 @@ public class FreeProductController {
         return ResponseEntity.ok(freeProductService.get(page, size));
     }
 
+    @GetMapping("/search/{title}")
+    public ResponseEntity<ApiResponse<Page<FreeProductResponse>>> search(@PathVariable String title,
+                                                                         @RequestParam (defaultValue = "0") int page,
+                                                                         @RequestParam (defaultValue = "10") int size) {
+        return ResponseEntity.ok(freeProductService.search(title, page, size));
+    }
+
+    @GetMapping("/get/{productId}")
+    public ResponseEntity<ApiResponse<FreeProductResponse>> getByProductId(@PathVariable UUID productId) {
+        return ResponseEntity.ok(freeProductService.getByProductId(productId));
+    }
+
+    @GetMapping("/get/{categoryId]")
+    public ResponseEntity<ApiResponse<Page<FreeProductResponse>>> getByCategoryId(@PathVariable UUID categoryId,
+                                                                                  @RequestParam(defaultValue = "0") int page,
+                                                                                  @RequestParam(defaultValue = "10") int size) {
+        return ResponseEntity.ok(freeProductService.getByCategoryId(categoryId, page, size));
+
+    }
+    @DeleteMapping("/delete/{productId}")
+    public ResponseEntity<ApiResponse<String>> delete(@PathVariable UUID productId, @RequestParam UUID userId) {
+        return ResponseEntity.ok(freeProductService.delete(productId, userId));
+    }
+
     @PutMapping("/update")
     public ResponseEntity<ApiResponse<FreeProductResponse>> update(@RequestParam UUID userId,
                                                                    @RequestParam UUID productId,
@@ -39,10 +63,6 @@ public class FreeProductController {
         return ResponseEntity.ok(freeProductService.update(userId, productId, freeProductCreation));
     }
 
-    @DeleteMapping("/delete/{productId}")
-    public ResponseEntity<ApiResponse<String>> delete(@PathVariable UUID productId, @RequestParam UUID userId) {
-        return ResponseEntity.ok(freeProductService.delete(productId, userId));
-    }
 
 
 }

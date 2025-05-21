@@ -19,4 +19,6 @@ public interface ProductRepository extends JpaRepository<ProductEntity, UUID> {
     List<ProductEntity> findAllByTitleAndVisibilityTrue(String name);
 
     List<ProductEntity> findAllByCategoryIdAndVisibilityTrue(UUID id);
+
+    Optional<ProductEntity> findByIdAndVisibilityTrue(UUID productId);
 }

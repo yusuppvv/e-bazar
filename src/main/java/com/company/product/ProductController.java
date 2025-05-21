@@ -27,6 +27,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.get(page, size));
     }
 
+    @GetMapping("/get/{productId}")
+    public ResponseEntity<ApiResponse<ProductResponse>> getByProductId(@PathVariable UUID productId) {
+        return ResponseEntity.ok(productService.getByProductId(productId));
+    }
+
     @GetMapping("/search")
     public ResponseEntity<ApiResponse<Page<ProductResponse>>> search(
                                                                   @RequestParam(defaultValue = "texnika") String name,

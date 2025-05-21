@@ -36,9 +36,41 @@ public class FreeProductService {
             return new ApiResponse<>(404, Components.ERROR);
         }
         else {
-            return new ApiResponse<>("200", new PageImpl<>(list, pageable, list.size()));
+            return new ApiResponse<>(200, new PageImpl<>(list, pageable, list.size()));
         }
     }
+    public ApiResponse<Page<FreeProductResponse>> search(String title, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Components.CREATED_AT));
+        List<FreeProductResponse> list = freeProductRepository.findAllByTitleAndVisibilityTrue(title, pageable).stream().map(this::toResponse).toList();
+        if (list.isEmpty()) {
+            return new ApiResponse<>(404, Components.ERROR);
+        }
+        else {
+            return new ApiResponse<>(200, new PageImpl<>(list, pageable, list.size()));
+        }
+    }
+
+    public ApiResponse<Page<FreeProductResponse>> getByCategoryId(UUID categoryId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Components.CREATED_AT));
+        List<FreeProductResponse> list = freeProductRepository.findAllByCategoryIdAndVisibilityTrue(categoryId, pageable).stream().map(this::toResponse).toList();
+        if (list.isEmpty()) {
+            return new ApiResponse<>(404, Components.ERROR);
+        }
+        else {
+            return new ApiResponse<>(200, new PageImpl<>(list, pageable, list.size()));
+        }
+    }
+
+    public ApiResponse<FreeProductResponse> getByProductId(UUID productId) {
+        Optional<FreeProductEntity> optional = freeProductRepository.findByIdAndVisibilityTrue(productId);
+        if (optional.isPresent()) {
+            return new ApiResponse<>(toResponse(optional.get()));
+        }
+        else {
+            return new ApiResponse<>(404, Components.ERROR);
+        }
+    }
+
     public ApiResponse<FreeProductResponse> update(UUID userId, UUID productId, FreeProductCreation freeProductCreation) {
         Optional<FreeProductEntity> optionalProduct = freeProductRepository.findByUserIdAndIdAndVisibilityTrue(userId, productId);
         if (optionalProduct.isPresent()) {

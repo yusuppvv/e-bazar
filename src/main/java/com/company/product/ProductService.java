@@ -63,6 +63,16 @@ public class ProductService {
         }
     }
 
+    public ApiResponse<ProductResponse> getByProductId(UUID productId) {
+        Optional<ProductEntity> optional = productRepository.findByIdAndVisibilityTrue(productId);
+        if (optional.isPresent()) {
+            ProductResponse productResponse = toResponse(optional.get());
+            return new ApiResponse<>(200, productResponse);
+        } else {
+            return new ApiResponse<>(404, Components.ERROR);
+        }
+    }
+
     public ApiResponse<ProductResponse> update(UUID userId, UUID productId, ProductCreation productCreation) {
         Optional<ProductEntity> optionalProduct = productRepository.findByUserIdAndIdAndVisibilityTrue(userId, productId);
         if (optionalProduct.isPresent()) {
